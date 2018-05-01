@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<img src="/media/{{user_profile.avatar}}" height="150px" width="100%">
+					</div>
+					<div class="panel-footer text-center">
+						<a href="{% url "profile_update" user.id %}"> Edit profile</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="info-section">
+							<h3>{{user.username}}</h3>
+							<p class="profile-email">{{user.email}}</p>
+						</div>
+						<div class="profile-section">
+						<p>{{user_profile.full_name}}, {{user_profile.address}}, {{user_profile.phone}}</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12 blog-section">
+				<div class="title">
+					<h3>My  Blogs</h3>
+				</div>
+				{% for blog in blogs %}
+					<div class="blog">
+						<a href="{% url "blog_detail" blog.id %}">{{blog.title}}</a>
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<form action="" method="post" id="login-form" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form.as_p}}
+				<button class="btn btn-default">
+					Update Profile
+				</button>
+			</form>
+
+		</div>
+	</div>
+{% endblock %}
